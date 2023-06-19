@@ -16,15 +16,19 @@ const parkAnimalsSchema = new mongoose.Schema({
 });
 
 const parkSchema = new mongoose.Schema({
+  // _id: {
+  //   type : mongoose.Schema.Types.ObjectId,
+  //   required:false
+  // }, // Include _id field with ObjectId type
   parkName: {
     type: String,
     unique: true,
     required: [true, " park Name is required "]
 
   },
-  state: {
+  country: {
     type: String,
-    required: [true, " park state is required "]
+    required: [true, " park country is required "]
   },
   picture: {
     type: String,
@@ -34,7 +38,8 @@ const parkSchema = new mongoose.Schema({
     type: [parkAnimalsSchema],
     require: [true, " park Animals is required "]
   },
-});
+},
+{ strict: false });
 
 mongoose.model(
   process.env.PARK_DOCUMENT,

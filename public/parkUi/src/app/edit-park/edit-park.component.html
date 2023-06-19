@@ -1,0 +1,100 @@
+
+<div class="container p-0">
+    <div class="row">
+        <div class="col-md-5 col-xl-4">
+        
+        </div>
+        <div class="col-md-7 col-xl-8">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="account" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-actions float-right">
+                                <div class="dropdown show">
+                       
+                                </div>
+                            </div>
+                            <h5 class="card-title mb-0">Park info</h5>
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="inputUsername">ParkName</label>
+                                            <input type="text" class="form-control" id="inputUsername" placeholder="ParkName" [(ngModel)]="park.parkName" [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputUsername">Country</label>
+                                            <input type="text" class="form-control" id="inputUsername" placeholder="Country" [(ngModel)]="park.country" [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label for="inputUsername">Biography</label>
+                                            <textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
+                                        </div> -->
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+
+                                          <img *ngIf="park.picture.length > 1"  [src]="park.picture" class="rounded-circle img-responsive mt-2" width="128" height="128" >
+                                          <div class="mt-2">
+                                            <label class="btn btn-primary">
+                                              <i class="fa fa-upload"></i>
+                                              <input type="file" style="display:none" (change)="onParkPictureSelected($event)" name="parkPicture" >
+                                            </label>
+                                          </div>
+                                          <small>Park Picture</small>
+                                        </div>
+                                    </div>
+                                      
+                                </div>
+                                 
+                                <h5 class="card-title mb-0">ParkAnimal info</h5><br/>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="inputUsername">Animal Name</label>
+                                            <input type="text" class="form-control" id="inputUsername" placeholder="ParkName" [(ngModel)]="park.parkAnimals[0].name" [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputUsername">description</label>
+                                            <input type="text" class="form-control" id="inputUsername" placeholder="description" [(ngModel)]="park.parkAnimals[0].description" [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label for="inputUsername">Biography</label>
+                                            <textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
+                                        </div> -->
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <img *ngIf="park.parkAnimals[0].picture !== '' "  [src]="park.parkAnimals[0].picture" class="rounded-circle img-responsive mt-2" width="128" height="128" >
+                                            <div class="mt-2">
+                                            <label class="btn btn-primary">
+                                              <i class="fa fa-upload"></i>
+                                              <input type="file" style="display:none" (change)="onAnimalPictureSelected($event)" name="animalPicture">
+                                            </label>
+                                          </div>
+                                          <small>Animal Picture</small>
+                                        </div>
+                                    </div>
+                                      
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <br/>
+                                <div class="alert alert-success" *ngIf="showSuccessMessage">
+                                    Park Update successfully!
+                                  </div>
+                                  
+                            </form>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+

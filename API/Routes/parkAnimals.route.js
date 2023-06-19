@@ -10,6 +10,7 @@ router
 
 
  router.route("/:animalId")
+ .get(parkAnimals.getOne)
  .put(parkAnimals.fullUpdate)
  .patch(parkAnimals.partialUpdate)
  .delete(parkAnimals.deleteOne);

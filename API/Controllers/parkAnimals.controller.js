@@ -71,12 +71,16 @@ const getAll = (req, res) => {
 };
 
 const getOne = (req, res) => {
-  const parkId = req.params.id;
+  const parkId = req.params.parkId;
+  const animalId = req.params.animalId;
 
+  console.log("parkId",parkId);
+  console.log("animalId",animalId);
   Park.getModel()
     .findById(parkId)
     .then((park) => parkUtil.isParkFound(park))
-    .then((parks) => responseUtil.setResponse(process.env.OK, parks))
+    .then((park) => _isAnimalFound(park, animalId))
+    .then((animal) => responseUtil.setResponse(process.env.OK, animal.foundAnimal))
     .catch((error) =>
       responseUtil.setResponse(process.env.SERVER_INTERNAL_ERROR, error)
     )
