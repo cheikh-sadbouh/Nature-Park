@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { EditParkComponent } from './edit-park/edit-park.component';
 import { CreateParkComponent } from './create-park/create-park.component';
 import { EditAnimalComponent } from './edit-animal/edit-animal.component';
+import { CreateAnimalComponent } from './create-animal/create-animal.component';
 
 const routes: Routes = [{
   path:'nature-park/:id/animals',
@@ -18,8 +19,12 @@ const routes: Routes = [{
   component:EditParkComponent
 },
 {
-  path:'nature-park/:parkId/animals/:animalId',
+  path:'nature-park/:parkId/animals/:animalId/update-animal',
   component:EditAnimalComponent
+},
+{
+  path:'nature-park/:parkId/animals/create-animal',
+  component:CreateAnimalComponent
 },
 {
   path:'nature-park/create-park',

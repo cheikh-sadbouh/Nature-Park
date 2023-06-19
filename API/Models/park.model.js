@@ -13,7 +13,8 @@ const parkAnimalsSchema = new mongoose.Schema({
     type: String,
     required: [true, " Animal description is required "]
   },
-});
+},
+{ strict: false });
 
 const parkSchema = new mongoose.Schema({
   // _id: {

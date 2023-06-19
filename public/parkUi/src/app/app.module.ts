@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { EditParkComponent } from './edit-park/edit-park.component';
 import { EditAnimalComponent } from './edit-animal/edit-animal.component';
 import { CreateParkComponent } from './create-park/create-park.component';
+import { CreateAnimalComponent } from './create-animal/create-animal.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CreateParkComponent } from './create-park/create-park.component';
     LoginComponent,
     EditParkComponent,
     EditAnimalComponent,
-    CreateParkComponent
+    CreateParkComponent,
+    CreateAnimalComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

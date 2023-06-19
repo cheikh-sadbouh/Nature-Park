@@ -30,6 +30,10 @@ export class CreateParkComponent {
  onSubmit(): void {
   console.log(this.park); // Log the park object (for testing purposes)
   const { _id, ...parkWithoutId } = this.park;
+  const parkAnimals = parkWithoutId.parkAnimals.map(({ _id: animalId, ...animal }) => animal) as ParkAnimal[];
+  
+  parkWithoutId.parkAnimals = parkAnimals;
+  
   // Call the createPark() method in the parkService and pass the park object
   this.parkServie.createPark(parkWithoutId)
     .subscribe({

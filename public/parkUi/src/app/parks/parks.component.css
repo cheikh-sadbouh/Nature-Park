@@ -1,7 +1,10 @@
 body {
     margin-top: 170px;
 }
-
+.fixed-size-image {
+    width: 350px;
+    height: 250px;
+}
 
 .floating-button {
     position: fixed;
