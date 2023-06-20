@@ -35,7 +35,7 @@
                                     </button>
                                 </div>
                                 <div class="col-2">
-                                    <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title data-original-title="Compare">
+                                    <button *ngIf="isLoggedIn" type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title data-original-title="Compare">
 
 
                                         <a style="color:#818a91;" [routerLink]="['edit-park',park._id]">
@@ -44,7 +44,7 @@
                                     </button>
                                 </div>
                                 <div class="col-8" style="text-align: end">
-                                    <a   [routerLink]="[park._id,'animals']" class="circle-button">
+                                    <a   *ngIf="isLoggedIn" [routerLink]="[park._id,'animals']" class="circle-button">
                                         <i class="fa fa-arrow-right"></i>
                                     </a>
 

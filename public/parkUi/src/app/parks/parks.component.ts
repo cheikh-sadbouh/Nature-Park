@@ -15,8 +15,10 @@ export class ParksComponent implements OnInit {
  isLoggedIn = false;
 constructor(private _auth:AuthService,private _parkService:ParkService,private router: Router){}
   ngOnInit(): void {
-    this.getAllParks()
     this.isLoggedIn=  this._auth.islogging;
+    console.log(this.isLoggedIn);
+    
+    this.getAllParks()
     }
 parks: Park[] = []; 
   
