@@ -39,7 +39,7 @@ const login= (req, res) => {
             return res.status(401).json({ error: 'Invalid password' });
           }
         // Generate JWT token
-          const token = jwt.sign({ username: user.username }, 'secretKey');
+          const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_TOKEN_DURATION});
           res.status(200).json({ message: 'Login successful' ,token});
         });
       })

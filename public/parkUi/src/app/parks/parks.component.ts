@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ParkService } from '../park.service';
 import { Park } from './park';
+import { AuthService } from '../auth-service.service';
 
 @Component({
   selector: 'app-parks',
@@ -11,10 +12,11 @@ import { Park } from './park';
   styleUrls: ['./parks.component.css']
 })
 export class ParksComponent implements OnInit {
-
-constructor(private _parkService:ParkService,private router: Router){}
+ isLoggedIn = false;
+constructor(private _auth:AuthService,private _parkService:ParkService,private router: Router){}
   ngOnInit(): void {
     this.getAllParks()
+    this.isLoggedIn=  this._auth.islogging;
     }
 parks: Park[] = []; 
   

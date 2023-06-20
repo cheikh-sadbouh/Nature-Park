@@ -7,14 +7,19 @@ import { EditParkComponent } from './edit-park/edit-park.component';
 import { CreateParkComponent } from './create-park/create-park.component';
 import { EditAnimalComponent } from './edit-animal/edit-animal.component';
 import { CreateAnimalComponent } from './create-animal/create-animal.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [{
   path:'nature-park/:id/animals',
   component:AnimalsComponent
 },{
-  path:'login',
+  path:'auth/login',
   component:LoginComponent
 },{
+  path:'auth/signup',
+  component:SignupComponent
+}
+,{
   path:'nature-park/edit-park/:id',
   component:EditParkComponent
 },
