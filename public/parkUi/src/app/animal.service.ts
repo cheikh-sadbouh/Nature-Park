@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AnimalService {
-  private apiUrl =  environment.BASE_URL; 
+  private apiUrl = environment.BASE_URL+"/parks" ;
 
   constructor(private http: HttpClient) { }
 

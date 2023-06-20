@@ -30,7 +30,7 @@
                         <div class="product-buttons mt-4">
                             <div class="row align-items-center">
                                 <div class="col-2">
-                                    <button (click)="deletePark(park._id)" type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title data-original-title="Favorite">
+                                    <button *ngIf="isLoggedIn" (click)="deletePark(park._id)" type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title data-original-title="Favorite">
                                         <i class="fa fa-trash" ></i>
                                     </button>
                                 </div>
@@ -44,7 +44,7 @@
                                     </button>
                                 </div>
                                 <div class="col-8" style="text-align: end">
-                                    <a   *ngIf="isLoggedIn" [routerLink]="[park._id,'animals']" class="circle-button">
+                                    <a    [routerLink]="[park._id,'animals']" class="circle-button">
                                         <i class="fa fa-arrow-right"></i>
                                     </a>
 
@@ -93,6 +93,6 @@
 
 
  <!-- Floating Button -->
- <a href="#" class="btn btn-primary floating-button rounded-circle"  [routerLink]="['create-park']"  >
+ <a *ngIf="isLoggedIn" href="#" class="btn btn-primary floating-button rounded-circle"  [routerLink]="['create-park']"  >
     <i class="fa fa-plus fa-2x " ></i>
  </a>
