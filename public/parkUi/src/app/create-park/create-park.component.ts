@@ -28,17 +28,15 @@ export class CreateParkComponent {
   animalPicture: File | null = null;
  constructor(private parkServie:ParkService){}
  onSubmit(): void {
-  console.log(this.park); // Log the park object (for testing purposes)
+  console.log(this.park); 
   const { _id, ...parkWithoutId } = this.park;
   const parkAnimals = parkWithoutId.parkAnimals.map(({ _id: animalId, ...animal }) => animal) as ParkAnimal[];
   
   parkWithoutId.parkAnimals = parkAnimals;
   
-  // Call the createPark() method in the parkService and pass the park object
   this.parkServie.createPark(parkWithoutId)
     .subscribe({
       next: response => {
-        // Handle the response from the createPark() method
         console.log('Park created successfully:', response);
 
      
@@ -55,12 +53,10 @@ export class CreateParkComponent {
             description: ''
           }]
         };
-        // Perform any additional actions, such as redirecting or displaying a success message
       },
       error: error => {
-        // Handle any errors that occur during the createPark() method
+        
         console.error('Error creating park:', error);
-        // Perform error handling, such as displaying an error message to the user
       }
     });
 }
@@ -73,7 +69,7 @@ export class CreateParkComponent {
     if (files && files.length > 0) {
       this.parkPicture = files[0];
       this.convertImageToBase64(this.parkPicture).then(base64 => {
-        console.log(base64); // Example: Log the base64 string
+        console.log(base64);
         this.park.picture= base64;
 
       });
@@ -86,7 +82,7 @@ export class CreateParkComponent {
     if (files && files.length > 0) {
       this.animalPicture = files[0];
       this.convertImageToBase64(this.animalPicture).then(base64 => {
-        console.log(base64); // Example: Log the base64 string
+        console.log(base64); 
 
         this.park.parkAnimals[0].picture= base64;
       });
