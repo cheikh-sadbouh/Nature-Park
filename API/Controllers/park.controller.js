@@ -1,6 +1,6 @@
 const responseUtil = require("../utils/response.util");
 const parkUtil = require("../utils/park.util");
-const Park = require("../Models/park.model");
+const Park = require("../data/park.model");
 
 
 const addOne = (req, res) => {
