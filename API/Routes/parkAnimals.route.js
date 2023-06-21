@@ -10,7 +10,7 @@ router
   .get(parkAnimals.getAll);
 
 
- router.route("/:animalId")
+ router.route(process.env.ANIMAL_ID)
  .get(parkAnimals.getOne)
  .put(requestValidator.isAuthorized, parkAnimals.fullUpdate)
  .patch(requestValidator.isAuthorized,parkAnimals.partialUpdate)

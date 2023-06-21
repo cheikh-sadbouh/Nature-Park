@@ -1,6 +1,5 @@
 const hasQueryString = function(req) {
     return new Promise((resolve, reject) => {
-     console.log("_hasquery",req.query);
         if(req.query) resolve(true)
         else resolve(false)
     });
@@ -8,17 +7,14 @@ const hasQueryString = function(req) {
 
 const hasParams = function(hasQueryResult ,query){
  return new Promise((resolve, reject) => {
-   console.log("_hasParams",query);
     const  params = {offset:null,count:null};
 
    if (hasQueryResult && process.env.OFFSET in query) {
      params.offset = query.offset;
-     console.log("offset",query.offset);
 
    }
    if (hasQueryResult && process.env.COUNT in query) {
      params.count = query.count;
-     console.log("count",query.count);
 
    }
      if( hasQueryResult ) resolve(params)
@@ -27,7 +23,6 @@ const hasParams = function(hasQueryResult ,query){
 }
 const isNotNumber = function(params) {
  return new Promise((resolve, reject) => {
-   console.log("_isNaN", params);
    if ((params.offset && isNaN(params.offset)) || (params.count && isNaN(params.count))) {
      reject({
        message: process.env.OFFSET_SHOULD_BE_NUMBER,
@@ -40,7 +35,7 @@ const isNotNumber = function(params) {
 };
 
 
-const updateOffsetAndCount = (params, defaultParams) => {
+const updateOffsetAndCount = function(params, defaultParams) {
  return new Promise((resolve, reject) => {
       if(params.offset) defaultParams.offset = params.offset;
       if(params.count) defaultParams.count = params.count;
@@ -53,7 +48,6 @@ const isParkFound = function (park) {
       if (park) {
         resolve(park);
       } else {
-        console.log("park not found");
         reject(process.env.PARK_NOT_FOUND);
       }
     });

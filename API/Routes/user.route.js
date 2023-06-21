@@ -9,7 +9,7 @@ router
   .post(authentificationController.createUser)
   
 router
-  .route("/login")
+  .route(process.env.LOGIN)
   .post(authentificationController.login)
 
 

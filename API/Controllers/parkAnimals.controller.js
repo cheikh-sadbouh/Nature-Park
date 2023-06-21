@@ -2,7 +2,7 @@ const responseUtil = require("../utils/response.util");
 const parkUtil = require("../utils/park.util");
 const Park = require("../data/park.model");
 
-const addOne = (req, res) => {
+const addOne = function(req, res)  {
   const parkId = req.params.parkId;
   const newAnimal = req.body;
 
@@ -10,16 +10,14 @@ const addOne = (req, res) => {
     .findById(parkId)
     .then((park) => parkUtil.isParkFound(park))
     .then((park) => _addOne(park, newAnimal))
-    .then((addedAnimal) =>
-      responseUtil.setResponse(process.env.OK, addedAnimal)
-    )
+    .then((addedAnimal) => responseUtil.setResponse(process.env.OK, addedAnimal))
     .catch((error) =>
       responseUtil.setResponse(process.env.SERVER_INTERNAL_ERROR, error)
     )
     .finally(() => responseUtil.sendResponse(res));
 };
 
-const deleteOne = (req, res) => {
+const deleteOne = function(req, res) {
   const parkId = req.params.parkId;
   const animalId = req.params.animalId;
   Park.getModel()
@@ -39,7 +37,7 @@ const deleteOne = (req, res) => {
     .finally(() => responseUtil.sendResponse(res));
 };
 
-const getAll = (req, res) => {
+const getAll = function(req, res)  {
   const defaultParams = {
     offset: parseFloat(process.env.DEFAULT_FIND_OFFSET, process.env.BASE_TEN),
     count: parseFloat(process.env.DEFAULT_FIND_COUNT, process.env.BASE_TEN),
@@ -70,12 +68,10 @@ const getAll = (req, res) => {
     .finally(() => responseUtil.sendResponse(res));
 };
 
-const getOne = (req, res) => {
+const getOne = function(req, res) {
   const parkId = req.params.parkId;
   const animalId = req.params.animalId;
 
-  console.log("parkId",parkId);
-  console.log("animalId",animalId);
   Park.getModel()
     .findById(parkId)
     .then((park) => parkUtil.isParkFound(park))
@@ -103,12 +99,11 @@ const _deleteOne = function (parkId, animalId) {
   );
 };
 const _updateOne = function (parkAndAnimal, newAnimal) {
-  console.log("_updateOne", parkAndAnimal, newAnimal);
   parkAndAnimal.foundAnimal.set(newAnimal);
   return parkAndAnimal.park.save();
 };
 
-const _update = (req, res) => {
+const _update = function(req, res) {
   const parkId = req.params.parkId;
   const animalId = req.params.animalId;
   const newAnimal = req.body;
@@ -128,14 +123,12 @@ const _update = (req, res) => {
 };
 
 const _isAnimalFound = function (park, animalId) {
-  console.log("_isAnimalFound");
   return new Promise((resolve, reject) => {
     const foundAnimal = park.parkAnimals.find(
       (animal) => animal._id.toString() == animalId
     );
 
     if (!foundAnimal) {
-      console.log("Animal not found in the park");
       reject(process.env.ANIMAL_NOT_FOUND);
     }
     resolve({ foundAnimal, park });

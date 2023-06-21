@@ -13,7 +13,7 @@ router
   .get(parkController.getAll);
 
 router
-  .route("/:id")
+  .route(process.env.ID)
   .get(parkController.getOne)
   .put(requestValidator.isAuthorized,parkController.fullUpdate)
   .patch(requestValidator.isAuthorized,parkController.partialUpdate)

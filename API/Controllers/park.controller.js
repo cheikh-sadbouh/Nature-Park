@@ -3,7 +3,7 @@ const parkUtil = require("../utils/park.util");
 const Park = require("../data/park.model");
 
 
-const addOne = (req, res) => {
+const addOne = function(req, res)  {
     _addOneRequestBodyValidator(req.body)
     .then(() => Park.getModel().create(req.body))
     .then((park) => responseUtil.setResponse(process.env.OK,park))
@@ -11,7 +11,7 @@ const addOne = (req, res) => {
     .finally(()=> responseUtil.sendResponse(res));
 }
 
-const getAll = (req, res) => {
+const getAll = function(req, res)  {
   const defaultParams = {
      offset: parseFloat(process.env.DEFAULT_FIND_OFFSET, process.env.BASE_TEN),
      count: parseFloat(process.env.DEFAULT_FIND_COUNT, process.env.BASE_TEN)
@@ -31,7 +31,7 @@ const getAll = (req, res) => {
       .finally(() => responseUtil.sendResponse(res));
 }
 
-const getOne = (req, res) => {
+const getOne = function(req, res)  {
   const parkId = req.params.id;
 
      Park.getModel().findById(parkId)
@@ -49,7 +49,7 @@ const fullUpdate = function (req, res,) {
 }
 
 
-const deleteOne = (req, res) => {
+const deleteOne = function(req, res)  {
   const parkId = req.params.id;
  
   Park.getModel()

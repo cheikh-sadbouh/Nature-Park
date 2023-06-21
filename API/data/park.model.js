@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const parkAnimalsSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, " Animal name is required "]
+    required: [true, process.env.ANIMAL_NAME_MESSAGE]
   },
   picture: {
     type: String,
-    required: [true, "Animal picture is required "]
+    required: [true,process.env.ANIMAL_PICTURE_MESSAGE]
   },
   description: {
     type: String,
-    required: [true, " Animal description is required "]
+    required: [true,process.env.ANIMAL_DESCRIPTION_MESSAGE]
   },
 },
 { strict: false });
@@ -21,20 +21,20 @@ const parkSchema = new mongoose.Schema({
   parkName: {
     type: String,
     unique: true,
-    required: [true, " park Name is required "]
+    required: [true,process.env.PARK_NAME_MESSAGE ]
 
   },
   country: {
     type: String,
-    required: [true, " park country is required "]
+    required: [true,process.env.PARK_COUNTRY_MESSAGE]
   },
   picture: {
     type: String,
-    required: [true, " Park picture is required "]
+    required: [true,process.env.PARK_PICTURE_MESSAGE ]
   },
   parkAnimals: {
     type: [parkAnimalsSchema],
-    require: [true, " park Animals is required "]
+    require: [true,process.env.PARK_ANIMALS_MESSAGE ]
   },
 },
 { strict: false });

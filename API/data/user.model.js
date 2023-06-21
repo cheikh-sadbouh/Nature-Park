@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     username:  {
         type: String,
-        required: [true, " username  is required "]
+        required: [true,process.env.USERNAME_MESSAGE ]
       },
     password:  {
         type: String,
-        required: [true, " password is required "]
+        required: [true, process.env.PASSWORD_MESSAGE]
       }
   });
 

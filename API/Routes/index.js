@@ -6,9 +6,9 @@ const express = require("express");
 
 const router = express.Router();
 
-router.use("/api/parks",parkRoute);
-router.use("/api/parks/:parkId/parkAnimals",parkAnimalsRoute);
-router.use("/api/users",userRoute);
+router.use(process.env.API_PARKS ,parkRoute);
+router.use(process.env.API_PARKS_PARK_ID_PARK_ANIMALS,parkAnimalsRoute);
+router.use(process.env.API_USERS,userRoute);
 
 
 
