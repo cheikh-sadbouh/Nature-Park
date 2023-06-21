@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"parkName":{"$numberInt":"1"}},"name":"parkName_1","background":true,"unique":true}],"uuid":"c9d4deeb88454667b8e1cb6e727f4363","collectionName":"NaturePark","type":"collection"}
